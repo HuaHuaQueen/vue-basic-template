@@ -1,5 +1,3 @@
-// https://eslint.nodejs.cn/docs/latest/use/configure/configuration-files
-
 import globals from 'globals'
 import pluginJs from '@eslint/js' // JavaScript 规则
 import pluginVue from 'eslint-plugin-vue' // Vue 规则
@@ -9,11 +7,10 @@ import parserVue from 'vue-eslint-parser' // Vue 解析器
 import parserTypeScript from '@typescript-eslint/parser' // TypeScript 解析器
 
 import configPrettier from 'eslint-config-prettier' // 禁用与 Prettier 冲突的规则
-import pluginPrettier from 'eslint-plugin-prettier' // 运行 Prettier 规则
+import pluginPrettier from 'eslint-plugin-prettier'
+import { defineConfigWithVueTs } from '@vue/eslint-config-typescript' // 运行 Prettier 规则
 
-
-/** @type {import('eslint').Linter.Config[]} */
-export default [
+export default defineConfigWithVueTs(
   // 指定检查文件和忽略文件
   {
     files: ['**/*.{js,mjs,cjs,ts,vue}'],
@@ -85,4 +82,8 @@ export default [
       'vue/multi-word-component-names': 'off' // 允许单个单词组件名
     }
   }
-]
+)
+// export default [
+//
+//
+// ]

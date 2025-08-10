@@ -8,12 +8,17 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import UnoCSS from 'unocss/vite'
-import { open } from 'inspector/promises'
-import { homedir, hostname } from 'os'
+import { name, version, author, description } from './package.json'
+import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
 const pathSrc: string = path.resolve(__dirname, 'src')
 
-// https://vite.dev/config/
+const APP_INFO = {
+  name,
+  version,
+  author,
+  description
+}
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const env: Record<string, string> = loadEnv(mode, process.cwd())
   return {
@@ -35,9 +40,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }),
       Components({
         resolvers: [
+          PrimeVueResolver(),
           // 自动注册图标组件
           IconsResolver({
-            enabledCollections: ['ep'] // element-plus图标库，其他图标库 https://icon-sets.iconify.design/
+            enabledCollections: ['prime'] // element-plus图标库，其他图标库 https://icon-sets.iconify.design/
           })
         ],
         dts: path.resolve(pathSrc, 'types', 'components.d.ts') // 指定自动导入组件TS类型声明文件路径
@@ -66,6 +72,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         changeOrigin: true,
         rewrite: (path: string) => path.replace(new RegExp(`^${env.VITE_APP_BASE_API}`), '')
       }
+    },
+    define: {
+      APP_INFO: JSON.stringify(APP_INFO)
     }
   }
 })

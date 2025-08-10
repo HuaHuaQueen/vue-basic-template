@@ -8,8 +8,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Avatar: typeof import('primevue/avatar')['default']
+    Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScrollPanel: typeof import('primevue/scrollpanel')['default']
     SvgIcon: typeof import('./../components/svg-icon/index.vue')['default']
+    Toolbar: typeof import('primevue/toolbar')['default']
   }
 }

@@ -17,3 +17,13 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+/**
+ * 平台的名称、版本、描述、作者的类型提示
+ */
+declare const APP_INFO:{
+  name:string
+  version:string
+  desc:string
+  author:string
+}
