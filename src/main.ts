@@ -10,5 +10,4 @@ import { setupPlugins } from '@/plugins'
 const app = createApp(App)
 
 setupPlugins(app)
-app.provide('APP_INFO', readonly(APP_INFO))
 app.mount('#app')
