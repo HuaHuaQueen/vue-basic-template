@@ -9,7 +9,6 @@ import IconsResolver from 'unplugin-icons/resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import UnoCSS from 'unocss/vite'
 import { name, version, author, description } from './package.json'
-import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
 const pathSrc: string = path.resolve(__dirname, 'src')
 
@@ -40,7 +39,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }),
       Components({
         resolvers: [
-          PrimeVueResolver(),
           // 自动注册图标组件
           IconsResolver({
             enabledCollections: ['prime'] // element-plus图标库，其他图标库 https://icon-sets.iconify.design/
