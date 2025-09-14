@@ -1,4 +1,4 @@
-export enum ThemeEnum {
+export enum AppearanceEnum {
   // 深色模式
   DARK = 'dark',
   // 浅色模式

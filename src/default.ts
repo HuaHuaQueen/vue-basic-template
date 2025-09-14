@@ -1,7 +1,7 @@
-import { ThemeEnum } from '@/common/enums/ThemeEnum.ts'
+import { AppearanceEnum } from '@/common/enums/AppearanceEnum.ts'
 import { LangEnum } from '@/common/enums/LangEnum.ts'
 
 export const defaultSettings = {
-  theme:ThemeEnum.LIGHT,
+  appearance:AppearanceEnum.LIGHT,
   language:LangEnum.ZH_CN
 }

@@ -2,22 +2,19 @@ import { defaultSettings } from '@/default.ts'
 import { pinia } from '@/plugins/pinia'
 
 export const useSettingsStore = defineStore('settings', () => {
-
-  const theme = useStorage('theme', defaultSettings.theme)
+  const appearance = useStorage('appearance', defaultSettings.appearance)
 
   const language = useStorage('language', defaultSettings.language)
 
-  function toggleTheme() {
-  }
+  function toggleAppearance() {}
 
-  function toggleLanguage() {
-  }
+  function toggleLanguage() {}
 
   return {
-    theme,
+    appearance,
     language,
-    toggleTheme,
-    toggleLanguage
+    toggleAppearance,
+    toggleLanguage,
   }
 })
 
