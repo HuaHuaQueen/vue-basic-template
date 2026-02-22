@@ -41,7 +41,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         resolvers: [
           // 自动注册图标组件
           IconsResolver({
-            enabledCollections: ['prime'] // element-plus图标库，其他图标库 https://icon-sets.iconify.design/
+            enabledCollections: [''] // 图标库 https://icon-sets.iconify.design/
           })
         ],
         dts: path.resolve(pathSrc, 'types', 'components.d.ts') // 指定自动导入组件TS类型声明文件路径

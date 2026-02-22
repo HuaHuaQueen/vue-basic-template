@@ -54,6 +54,7 @@
     "stylelint-prettier": "^5.0.3",
     "typescript": "~5.8.0",
     "unocss": "^66.2.0",
+    "@unocss/reset": "^66.6.0",
     "unplugin-auto-import": "^19.3.0",
     "unplugin-icons": "^22.1.0",
     "unplugin-vue-components": "^28.7.0",
