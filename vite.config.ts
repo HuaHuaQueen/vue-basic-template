@@ -1,7 +1,7 @@
 import { ConfigEnv, defineConfig, loadEnv, UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import path from 'path'
+import {resolve} from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
@@ -10,7 +10,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import UnoCSS from 'unocss/vite'
 import { name, version, author, description } from './package.json'
 
-const pathSrc: string = path.resolve(__dirname, 'src')
+const pathSrc: string = resolve(__dirname, 'src')
 
 const APP_INFO = {
   name,
@@ -35,7 +35,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           enabled: true, // 是否自动生成 eslint 规则，建议生成之后设置 false
           filepath: './.eslintrc-auto-import.json', // 指定自动导入函数 eslint 规则的文件
         },
-        dts: path.resolve(pathSrc, 'types', 'auto-imports.d.ts'), // 指定自动导入函数TS类型声明文件路径
+        dts: resolve(pathSrc, 'types', 'auto-imports.d.ts'), // 指定自动导入函数TS类型声明文件路径
       }),
       Components({
         resolvers: [
@@ -44,7 +44,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             enabledCollections: [''], // 图标库 https://icon-sets.iconify.design/
           }),
         ],
-        dts: path.resolve(pathSrc, 'types', 'components.d.ts'), // 指定自动导入组件TS类型声明文件路径
+        dts: resolve(pathSrc, 'types', 'components.d.ts'), // 指定自动导入组件TS类型声明文件路径
       }),
       Icons({
         // 自动安装图标库
@@ -52,7 +52,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }),
       createSvgIconsPlugin({
         // 指定需要缓存的图标文件夹
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
         // 指定symbolId格式
         symbolId: 'icon-[dir]-[name]',
       }),
